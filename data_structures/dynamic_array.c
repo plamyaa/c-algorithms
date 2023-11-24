@@ -1,5 +1,5 @@
 /*
- * Here is dynamic array functions:
+ * Dynamic array functions:
  * create, push, push_n, remove_at, reverse, destroy
  */
 
@@ -7,10 +7,10 @@
 #include "../utils.h"
 
 typedef struct {
-    void *elts;
-    int nelts;
-    int nalloc;
-    size_t size;
+    void         *elts;
+    unsigned int  nelts;
+    unsigned int  nalloc;
+    size_t        size;
 } array_t;
 
 array_t *
@@ -59,10 +59,10 @@ array_push(array_t *a)
 }
 
 void *
-array_push_n(array_t *a, int n)
+array_push_n(array_t *a, unsigned int n)
 {
-    void *elt, *new;
-    int   nalloc;
+    void         *elt, *new;
+    unsigned int  nalloc;
 
     if (a->nelts + n > a->nalloc) {
         nalloc = 2 * ((n >= a->nalloc) ? n : a->nalloc);
@@ -82,7 +82,7 @@ array_push_n(array_t *a, int n)
 }
 
 void
-array_remove_at(array_t *a, int i)
+array_remove_at(array_t *a, unsigned int i)
 {
     a->nelts--;
     if (i != a->nelts) {
@@ -96,8 +96,8 @@ array_remove_at(array_t *a, int i)
 void
 array_reverse(array_t *a)
 {
-    int   i;
-    void *new;
+    unsigned int  i;
+    void         *new;
 
     new = xmalloc(a->nalloc * a->size);
 
@@ -129,8 +129,9 @@ array_destroy(array_t *a)
 
 int main()
 {
-    int     *last, i;
-    array_t *a;
+    int          *last;
+    unsigned int  i;
+    array_t      *a;
     
     a = array_create(1, sizeof (int));
 
@@ -152,8 +153,7 @@ int main()
         printf("Array[%d]: %d\n", i, *((int *) a->elts + i));
     }
 
-    free(a->elts);
-    free(a);
+    array_destroy(a);
 
     return 0;
 }
