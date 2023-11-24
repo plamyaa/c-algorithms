@@ -1,11 +1,11 @@
 #include "utils.h"
 
 void * 
-xmalloc(size_t n)
+xmalloc(size_t size)
 {
     void *ptr;
 
-    ptr = malloc(n * sizeof (int));
+    ptr = malloc(size);
     if (!ptr) {
         fprintf(stderr, "malloc error");
         exit(1);
