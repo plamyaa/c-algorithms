@@ -1,8 +1,8 @@
 #include "../utils.h"
 
 /*
- * Linked list
- *
+ * Linked list funcitons:
+ * create, push, insert, remove, destory_part, destroy
  */
 
 typedef struct list_part_s list_part_t;
@@ -139,7 +139,23 @@ list_remove(list_t *l, unsigned char *bytes)
     return;
 }
 
+void 
+list_destroy(list_t *l)
+{
+    list_part_t *part, *next;
 
+    part = &l->part;
+    free(part->elts);
+
+    part = part->next;
+    while (part != NULL) {
+        next = part->next;
+        list_destroy_part(part);
+        part = next;
+    }
+    
+    free(l);
+}
 
 int main()
 {
@@ -175,5 +191,8 @@ int main()
         }
         part = part->next;
     }
+
+    list_destroy(list);
+    
     return 0;
 }
