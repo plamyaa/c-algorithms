@@ -1,7 +1,7 @@
 #include "../utils.h"
 
 /*
- * Linked list funcitons:
+ * Linked list functions:
  * create, push, insert, remove, destory_part, destroy
  */
 
@@ -193,6 +193,6 @@ int main()
     }
 
     list_destroy(list);
-    
+
     return 0;
 }
