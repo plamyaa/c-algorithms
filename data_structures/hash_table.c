@@ -1,5 +1,10 @@
 #include "hash_table.h"
 
+/*
+ * Hash table functions:
+ * create, search, delete, destroy
+ */
+
 static ht_item_t *
 ht_create_item(const char *key, const char *value)
 {
