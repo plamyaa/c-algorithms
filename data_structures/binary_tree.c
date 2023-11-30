@@ -81,7 +81,7 @@ tree_get_max(tree_node_t *node)
     if (node->right == NULL) {
         return node;
     }
-    return tree_get_min(node->right);
+    return tree_get_max(node->right);
 }
 
 tree_node_t *
