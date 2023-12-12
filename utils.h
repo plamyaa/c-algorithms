@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <limits.h>
 
 #define max(a,b)             \
 ({                           \
@@ -27,5 +28,6 @@ int is_prime(const int x);
 int next_prime(int x);
 
 void print_array(int *arr, int len);
+void swap(int *a, int *b);
 
 #endif

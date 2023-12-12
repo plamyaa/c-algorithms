@@ -66,3 +66,12 @@ print_array(int *arr, int len)
     }
     printf("\n");
 }
+
+void
+swap(int *a, int *b)
+{
+    int tmp;
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
